@@ -108,6 +108,7 @@ OUTPUT_DIR=output  # 生成项目的输出目录
 # 开发配置
 DEBUG=false
 LOG_LEVEL=INFO
+```
 
 ### 4. 启动应用
 ## 💡 核心功能演示
