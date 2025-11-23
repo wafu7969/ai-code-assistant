@@ -132,25 +132,27 @@ class CodeExecutor:
             max_format_errors = 3  # 最多允许3次格式错误
             
             # 自定义解析错误处理函数
-            def custom_parsing_error_handler(error_message: str) -> str:
+            def custom_parsing_error_handler(error_message) -> str:
                 """自定义解析错误处理，避免无限循环"""
                 nonlocal format_error_count
                 format_error_count += 1
                 
-                print(f"🚨 第{format_error_count}次解析错误: {error_message}")
+                # 确保 error_message 是字符串格式
+                error_str = str(error_message)
+                print(f"🚨 第{format_error_count}次解析错误: {error_str}")
                 
                 if format_error_count >= max_format_errors:
                     print(f"⚠️ 解析错误次数达到上限({max_format_errors})，切换到直接执行模式")
                     raise Exception(f"解析错误次数过多，切换到备用模式")
                 
-                if "Invalid Format" in error_message and "Missing 'Action:' after 'Thought:'" in error_message:
+                if "Invalid Format" in error_str and "Missing 'Action:' after 'Thought:'" in error_str:
                     print("⚠️ 检测到ReAct格式错误，尝试修正...")
                     return "请使用正确的格式: Thought: 你的思考过程 Action: 选择一个工具 Action Input: 工具的输入"
-                elif "Invalid Format" in error_message:
+                elif "Invalid Format" in error_str:
                     print(f"⚠️ 检测到格式错误，尝试修正...")
                     return "请遵循标准的ReAct格式: Thought -> Action -> Action Input -> Observation"
                 
-                return f"解析错误: {error_message}"
+                return f"解析错误: {error_str}"
             
             # 构建ReAct Agent提示 - 使用标准ReAct格式
             react_prompt = PromptTemplate.from_template("""
