@@ -1,8 +1,12 @@
-# AI代码助手 - 完整AI应用流程学习项目
+# AI代码助手 - 如何开发大模型应用的演示项目
 
 🤖 **从任务决策、计划生成到ReAct Agent协作的完整AI应用流程实现**
 
-这是一个用于学习和理解现代AI应用开发完整流程的演示项目，展示了如何构建一个智能的AI代码助手，涵盖任务路由、智能规划、ReAct Agent执行等核心AI应用模式。
+这是一个用于学习和理解大模型应用开发完整流程的演示项目，展示了如何构建一个智能的AI代码助手，涵盖任务路由、智能规划、ReAct Agent执行等核心应用模式。
+
+## 🎯 开源目的
+
+通过这个项目，让读者可以理解本项目的设计模式、架构原理和实现细节，为构建自己的大模型应用提供思路、方案参考。
 
 ## 🎯 项目特色
 
@@ -15,32 +19,46 @@
 ### 学习价值
 - **完整AI应用架构**: 从输入处理到输出执行的完整流程
 - **多模式任务处理**: 简单开发、复杂开发、错误修复、智能问答
-- **项目检测与启动**: 支持Node.js、Python、Java等多种项目类型
+- **项目检测与启动**: 支持React、Node.js、Python、Java等多种项目类型
 - **实用工具集成**: 文件操作、Git管理、错误诊断等实用功能
 
 ## 🏗️ 项目架构
-
-```
+ai-code-asistant
 src/
-├── core/                   # 核心业务层
-│   ├── app_context.py     # 应用上下文管理
-│   ├── router.py          # 任务路由器 - 智能分析用户输入
-│   ├── planner.py         # 项目计划器 - 任务拆解与规划  
-│   ├── executor.py        # 代码执行器 - ReAct Agent执行
-│   ├── question_handler.py # 问题解答器 - 技术咨询处理
-│   └── project_detector.py # 项目检测器 - 多语言项目支持
-├── models/                 # 数据模型层
-│   ├── llm_provider.py    # LLM模型提供者
-│   └── task_types.py      # 任务类型定义
-├── tools/                  # 工具层
-│   ├── file_operations.py # 文件操作工具
-│   └── git_operations.py  # Git操作工具
-├── utils/                  # 工具层
-│   ├── config_loader.py   # 配置加载器
-│   ├── path_utils.py      # 路径处理工具
-│   └── ui_helpers.py      # UI辅助工具
-└── interfaces/             # 接口层
-    └── cli.py             # 命令行接口
+├nfig/                 # 配置文件目录
+│   └── .env.templat─      # 环境变量配置模板
+├── src                core# 源代码目录
+│   ├──/core/                   # 核│   心业务层
+│  __init__.py   
+│   │   ├──  ├── app_context.py     # 应用上│   下文管理
+│   ├── router.py          # 任务路由器 - 智能分析用户输入│   
+│   ├── planner.py         # 项目计划器 - 任务拆解与规划  │   
+│   ├── executor.py        # 代码执行器 - ReAct Agent执行│   
+│   ├── question_handler.py # 问题解答器 - 技术咨询处理│   ├│   └── project_detector.py # 项目检测器 - 多语言│   │   项目支持err├r_fixer.py     # 错误修复器 - 智能诊断和修复
+│   │   └── ─rror_ru e_engine.pyd#e错误规则引擎l-s规则匹配系统
+│/  ├── models/                 # 数据模型层│   
+│  __init__.py   
+│   │   ├──  ├── llm_provider.py    # LLM模型提供者│   
+│   └── task_types.py      # 任务│   类型定义
+├── t     ools/   # 工具层
+│   │   ├── __init__.py   #│    工具层
+│   ├── file_operations.py # 文件│   操作工具├│   └── git_operations.py  # Git│   │   └作工具shell_opera├─on .py #tShell命令执行工具
+│ils├──/utils/               通用   #│    工具层
+│  __init__.py   
+│   │   ├──  ├── config_loader.py   # 配置加载器│   
+│   ├── path_utils.py      # 路径处理工具│   ├│   └── ui_helpers.py      # UI│   │   ├── project_helpers.py # 项目管理辅助
+│   │   ├── validators.py      # 数据验证器
+│   │   辅── logger.py          # 日志管理器
+│   ├助工具
+└── interf     ace#s接口层
+│/  │   ├── __init__.py   #│   │接口层
+    └── ci.py             # 
+│   └── __init__.py       命├── .gitignore            # Git忽略文件配置
+├── LICENSE               # 开源许可证
+├── README.md             # 项目说明文档
+├── main.py               # 应用主入口文件
+└── requirements.txt      # Python依赖包列表
+令行接口
 ```
 
 ## 🚀 快速开始
@@ -51,7 +69,7 @@ src/
 
 ### 1. 克隆项目
 ```bash
-git clone [your-repo-url]
+git clone https://github.com/wafu7969/ai-code-assistant
 cd ai-code-assistant
 ```
 
@@ -83,14 +101,9 @@ OUTPUT_DIR=output  # 生成项目的输出目录
 
 # 开发配置
 DEBUG=false
-LOG_LEVEL=INFO
-```
+LOG_``
 
 ### 4. 启动应用
-```bash
-python main.py
-```
-
 ## 💡 核心功能演示
 
 ### 1. 智能任务路由
@@ -197,4 +210,6 @@ AI助手能自动识别用户输入的意图类型：
 
 本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情
 
-**🎯 学习目标**: 通过这个项目，可以理解大模型应用的设计模式、架构原理和实现细节，为构建自己的大模型应用打下坚实基础。
+## 学习交流
+
+![微信公众号二维码](images/wechat.jpg)
